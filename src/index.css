@@ -1,13 +1,31 @@
-body {
+/*#region Struttura file index */
+
+/* Regola generale */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Font al body */
+body {
+  font-family: 'montserratt', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+main {
+  min-height: 100vh;
 }
+
+/* Background normale è COLD */
+.app {
+  background-image: url('./assets/cold-bg.jpg');
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.4 ease-out;
+}
+
+/* Ora background warm */
+.app.warm {
+  background-image: url('./assets/warm-bg.jpg');
+}
+
+/*#endregion  */

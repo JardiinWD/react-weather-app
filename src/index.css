@@ -13,6 +13,13 @@ body {
 
 main {
   min-height: 100vh;
+  /* Linear Gradient mi da la possibilità di scurire tutta l'app generale
+  to bottom => Andando verso il basso
+  rgba(0, 0, 0, 0.15) => ombra leggera
+  rgba(0, 0, 0, 0.6) => ombra un pò più pesante
+  */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0, 0, 0, 0.6));
+  padding: 20px;
 }
 
 /* Background normale è COLD */
@@ -29,3 +36,39 @@ main {
 }
 
 /*#endregion  */
+
+/*#region Search-box e Search-bar */
+
+.search-box {
+  width: 100%;
+  margin: 0 0 70px;
+}
+
+:root {
+  --none: none
+}
+
+.search-box .search-bar {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  /* Aspetto della searchbar */
+  appearance: var(--none);
+  background: var(--none);
+  border: var(--none);
+  outline: var(--none);
+  /* Aspetto e bg-color dell'App */
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  /* Color del testo e font */
+  color: #333333;
+  font-size: 16px;
+  transition: 0.4s ease;
+}
+
+.search-box .search-bar:focus {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/*#endregion */

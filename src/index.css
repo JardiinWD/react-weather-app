@@ -6,6 +6,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 /* Font al body */
 body {
   font-family: 'montserratt', sans-serif;
@@ -27,7 +28,7 @@ main {
   background-image: url('./assets/cold-bg.jpg');
   background-size: cover;
   background-position: bottom;
-  transition: 0.4 ease-out;
+  transition: 0.4s ease-out;
 }
 
 /* Ora background warm */

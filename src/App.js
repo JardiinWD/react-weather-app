@@ -52,7 +52,18 @@ function App() {
   }
 
   return (
-    <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app') : 'app'}>
+    /* Analisi condizione Sottostante
+    ternario semplice :
+    verifica SE weather.main != "undefined" => quindi tempo diverso da Undefined
+    di oonseguenza (weather.main.temp > 16) => La temperatura è maggiore di 16°
+    'app warm' => allora metti temperatura calda
+    : => ALTRIMENTI metti classe app normale che ha sfondo temperatura fredda
+    */
+    <div className={(typeof weather.main != "undefined") ?
+      ((weather.main.temp > 16) ?
+        'app warm'
+        : 'app')
+      : 'app'}>
       <main>
         {/* Searchbox necessaria */}
         <div className="search-box">

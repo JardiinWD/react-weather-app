@@ -72,3 +72,62 @@ main {
 }
 
 /*#endregion */
+
+/*#region Location & Temperature */
+
+/* Nome della location */
+.location-box .location {
+  /* Tutto lo stile dedicato ai colori della zona */
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  /* Ombra dedicata al titolo della localizzazione */
+  text-shadow: 3px 3px rgba(50, 50, 50, 0.2);
+}
+
+/* Stile Data, ora ecc */
+.location-box .date {
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+    text-align: center;
+    padding-top: 10px;
+    text-shadow: 2px 2px rgba(50, 50, 50, 0.2);
+}
+
+/*#endregion */
+
+/*#region Wheater */
+.weather-box {
+  text-align: center;
+}
+
+.weather-box .temperature {
+  /* Position */
+  position: relative;
+  display: inline-block;
+  margin: 20px auto;
+  padding: 15px 25px;
+  text-align: center;
+  /* Stile, colore */
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  color: white;
+  font-size: 90px;
+  font-weight: 700;
+  text-shadow: 3px 6px rgba(50, 50, 50, 0.5);
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.weather-box .weather {
+  color: white;
+  font-size: 45px;
+  font-weight: 700;
+  text-shadow: 3px 3px rgba(50, 50, 50, 0.5);
+}
+
+
+
+/*#endregion */

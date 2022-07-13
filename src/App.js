@@ -24,8 +24,10 @@ function App() {
     let data = d.getDate();
     let mese = mesi[d.getMonth()];
     let anno = d.getFullYear();
+    let ora = d.getHours();
+    let minute = d.getMinutes();
     /* Ora tramite return pesco tutti i dati */
-    return `${giorno} ${data} ${mese} ${anno}`
+    return `${giorno} ${data} ${mese} ${anno} ${ora} : ${minute}`
   }
 
   return (
@@ -53,9 +55,9 @@ function App() {
         {/* Box per il tempo */}
         <div className="weather-box">
           {/* Temperatura va qua */}
-          <div className="temperature"></div>
+          <div className="temperature">15°c</div>
           {/* Che tempo fa invece (soleggiato, piovoso ecc) qua */}
-          <div className="weather"></div>
+          <div className="weather">Sunny</div>
         </div>
       </main>
     </div>

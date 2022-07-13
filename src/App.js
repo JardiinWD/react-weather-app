@@ -52,7 +52,7 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app') : 'app'}>
       <main>
         {/* Searchbox necessaria */}
         <div className="search-box">
@@ -80,10 +80,10 @@ function App() {
             </div>
             {/* Box per il tempo */}
             <div className="weather-box">
-              {/* Temperatura va qua */}
-              <div className="temperature">15°c</div>
+              {/* Temperatura va qua in modo dinamico */}
+              <div className="temperature">{Math.round(weather.main.temp)}°c</div>
               {/* Che tempo fa invece (soleggiato, piovoso ecc) qua */}
-              <div className="weather">Sunny</div>
+              <div className="weather">{weather.weather[0].main}</div>
             </div>
           </div>
         ) : ('')}

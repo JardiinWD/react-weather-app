@@ -1,9 +1,10 @@
-import React from "react";
+/* useState va importato per poter cercare nella Query. E' una function di React */
+import React, { useState } from "react";
 
 /* Salvo la API della mia app meteo in una costante */
 const api = {
   /* Key Generata */
-  key: "afaf9f8d48cff6cafd32e23220bcfdbf",
+  key: "56933a18fdda52eead7219302b899f72",
   /* Da che sito la sto prendendo */
   base: "https://api.openweathermap.org/data/2.5/"
 }
@@ -12,6 +13,26 @@ const api = {
 console.log(api);
 
 function App() {
+  /* Settaggio della Query per il meteo grazie ad UseState */
+  const [query, setQuery] = useState('');
+  /* Stesso discorso per il weather */
+  const [weather, setWeather] = useState({});
+
+  /* Avvio una costante con al suo interno un ciclo */
+  const cerca = evt => {
+    if (evt.key === 'Enter') {
+      /* Questa è la API request */
+      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+        .then(res => res.json())
+        .then(result => {
+          setWeather(result);
+          setQuery('');
+          /* Verifica in console log */
+          console.log(result);
+        })
+    }
+  }
+
   /* Arrow-function per la mia date */
   const dateBuilder = (d) => {
     /* Mesi */
@@ -40,25 +61,32 @@ function App() {
             type="text"
             className="search-bar"
             placeholder="Cerca.."
+            onChange={element => setQuery(element.target.value)}
+            value={query}
+            onKeyPress={cerca}
           />
         </div>
-        {/* Box della location */}
-        <div className="location-box">
-          {/* Locazione */}
-          <div className="location">San Paolo d'Argon, BG</div>
-          {/* Data 
-          dateBuilder => la mia costante, l'array di variabili di array sopra return
-          new Date() => istanza
-          */}
-          <div className="date">{dateBuilder(new Date())}</div>
-        </div>
-        {/* Box per il tempo */}
-        <div className="weather-box">
-          {/* Temperatura va qua */}
-          <div className="temperature">15°c</div>
-          {/* Che tempo fa invece (soleggiato, piovoso ecc) qua */}
-          <div className="weather">Sunny</div>
-        </div>
+        {(typeof weather.main != "undefined") ? (
+          <div>
+            {/* Box della location */}
+            <div className="location-box">
+              {/* Locazione */}
+              <div className="location">{weather.name}, {weather.sys.country}</div>
+              {/* Data 
+              dateBuilder => la mia costante, l'array di variabili di array sopra return
+              new Date() => istanza
+              */}
+              <div className="date">{dateBuilder(new Date())}</div>
+            </div>
+            {/* Box per il tempo */}
+            <div className="weather-box">
+              {/* Temperatura va qua */}
+              <div className="temperature">15°c</div>
+              {/* Che tempo fa invece (soleggiato, piovoso ecc) qua */}
+              <div className="weather">Sunny</div>
+            </div>
+          </div>
+        ) : ('')}
       </main>
     </div>
   );
